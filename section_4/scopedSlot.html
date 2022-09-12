@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+  <title>scopedSlot</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <my-com>{{ member.name }}</my-com>これだと表示ができずエラーになる -->
+    <my-com v-slot:default="player">
+      {{ player }}<br>
+      {{ player.member.name }}
+    </my-com>
+  </div>
+  <script>
+    let = myCom = {
+      template: `<div>
+      <slot :member="member">ここが差し代わる</slot>
+      </div>`,
+      data(){
+        return {
+          member: {
+            name: "菅原",
+            height: "170",
+            hobby: "バスケ"
+          }
+        }
+      }
+    }
+
+    let app = new Vue({
+      el:'#app',
+      data(){
+        return{
+
+        }
+      },components: {
+        myCom
+      }
+    })
+  </script>
+</body>
+</html>
