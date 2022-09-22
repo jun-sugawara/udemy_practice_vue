@@ -9,8 +9,9 @@
       <router-link to="/user/profile">UserShow</router-link> 
     </nav>
     <div class="blue-b">
-    <router-view/>
-  </div>
+      <router-view/>
+    </div>
+      <router-view name="sub"/>
   </div>
 </template>
 
