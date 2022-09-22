@@ -4,7 +4,10 @@ import HomeView from '../views/HomeView.vue'
 import BookList from '../views/BookList.vue'
 import BookDetail from '../components/BookDetail.vue'
 import ItemList from '../views/ItemList.vue'
-import NotFound from '@/components/NotFound.vue'
+import NotFound from '../components/NotFound.vue'
+import UserShow from '../views/UserShow.vue'
+import UserProfile from '../components/UserProfile.vue'
+import UserPost from '../components/UserPost.vue'
 
 Vue.use(VueRouter)
 
@@ -41,6 +44,20 @@ const routes = [
     path: '/item/:id',
     name: 'Item',
     component: ItemList
+  },
+  {
+    path: '/user',
+    component: UserShow,
+    children:[
+      {
+        path: 'profile',
+        component: UserProfile
+      },
+      {
+        path: 'post',
+        component: UserPost
+      }
+    ]
   },
   {
     path: '*',
