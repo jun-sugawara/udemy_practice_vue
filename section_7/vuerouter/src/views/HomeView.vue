@@ -2,6 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="checkProcessEnv">processEnvを表示</button>
   </div>
 </template>
 
@@ -13,6 +14,10 @@ export default {
   name: 'HomeView',
   components: {
     HelloWorld
+  },methods:{
+    checkProcessEnv(){
+      console.log(process.env)
+    }
   }
 }
 </script>
