@@ -43,7 +43,7 @@ export default {
   data(){
     return {
       book: '',
-      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+      date: '',
       modal: false
     }
   },
@@ -60,7 +60,12 @@ export default {
     next(vm =>{
       vm.$nextTick(()=> {
         vm.book = vm.books[vm.$route.params.id]
-        console.log(vm.book)
+        if(vm.book.readDate) {
+          vm.date = vm.book.readDate
+        } else {
+          vm.date =  (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)
+        }
+        // console.log(vm.book)
       })
     })
   }
