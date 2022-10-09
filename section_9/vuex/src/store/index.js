@@ -30,9 +30,11 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    // ↓基本の書き方だが長いのでコメントアウト
     // incrementAction( context ){
     //   context.commit('increment')
     // },
+    // ↓簡潔に書く
     incrementAction({commit}){
       commit('increment')
     },
