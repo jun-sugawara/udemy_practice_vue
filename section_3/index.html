@@ -21,7 +21,7 @@
     </p>
     <form @submit.prevent="validate">
       氏名
-      <input type="text" v-model="yourName"><!-- conputedで監視している値-->
+      <input type="text" v-model="yourName"><!-- computedで監視している値-->
       <br>
       <p :class="{error: hasError.yourName}"> {{ contact.yourName.length }} / 20 </p>
       <p v-show="hasError.yourName" class="error">氏名は20文字以内で入力してください</p>
