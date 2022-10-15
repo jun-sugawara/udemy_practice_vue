@@ -3,18 +3,21 @@
     Composition
     <p>{{ name }}</p>
     <p>{{ age }}</p>
+    <p>{{ nameRef }}</p>
   </div>
 </template>
 
 <script>
+import { ref } from 'vue'
 export default {
   setup(){
     let name = '八村'
     const age = 25
-    console.log('setup')
+    const nameRef = ref('渡邉')
     return {
       name,
-      age
+      age,
+      nameRef
     }
   },
   data(){
@@ -23,12 +26,8 @@ export default {
       sports: 'Basketball'
     }
   },
-  created(){
-    console.log('created')
-  },
-  mounted(){
-    console.log('mounted')
-  }
+  created(){},
+  mounted(){}
 }
 </script>
 
