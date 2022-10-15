@@ -3,21 +3,28 @@
     Composition
     <p>{{ name }}</p>
     <p>{{ age }}</p>
-    <p>{{ nameRef }}</p>
+    <p>ref: {{ nameRef }}</p>
+    <p>reactive: {{ book.title }}</p>
+    <p>reactive: {{ book.author[0] }}</p>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 export default {
   setup(){
     let name = '八村'
     const age = 25
     const nameRef = ref('渡邉')
+    const book = reactive({
+      title: 'タイトル',
+      author: ['大谷','伊藤']
+    })
     return {
       name,
       age,
-      nameRef
+      nameRef,
+      book
     }
   },
   data(){
