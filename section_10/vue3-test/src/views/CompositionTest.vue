@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { reactive, ref, toRefs, computed, watch, watchEffect } from 'vue'
+import { reactive, ref, toRefs, computed, watch, watchEffect, onMounted } from 'vue'
 export default {
   setup(){
     let name = '八村'
@@ -46,6 +46,10 @@ export default {
     const searchEffect = ref ('')
     watchEffect(()=>{
       console.log(`watchEffect: ${searchEffect.value}`)
+    })
+
+    onMounted(()=>{
+      console.log('onMounted')
     })
 
     const item = reactive({
