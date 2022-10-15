@@ -10,11 +10,13 @@
     <p>reactiveToRefs: {{ authorRef[0] }}</p>
     <button @click="btnClick">クリック</button>
     <p>computed: {{ totalPrice }}</p>
+    <div>watch:<input v-model="search"></div>
+    <div>watchEffect:<input v-model="searchEffect"></div>
   </div>
 </template>
 
 <script>
-import { reactive, ref, toRefs, computed } from 'vue'
+import { reactive, ref, toRefs, computed, watch, watchEffect } from 'vue'
 export default {
   setup(){
     let name = '八村'
@@ -34,6 +36,18 @@ export default {
       console.log(e)
     }
 
+    const search = ref('')
+    watch(search, (newValue, oldValue)=> {
+      console.log(`watch: ${search.value}`)
+      console.log(`new: ${newValue}`)
+      console.log(`old: ${oldValue}`)
+    })
+
+    const searchEffect = ref ('')
+    watchEffect(()=>{
+      console.log(`watchEffect: ${searchEffect.value}`)
+    })
+
     const item = reactive({
       price: 100,
       number: 3
@@ -51,7 +65,9 @@ export default {
       ...toRefs(bookToRefs),
       btnClick,
       item,
-      totalPrice      
+      totalPrice,
+      search,
+      searchEffect
     }
   },
   data(){
