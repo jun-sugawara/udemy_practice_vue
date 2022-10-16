@@ -12,25 +12,29 @@
 </template>
 
 <script>
-import { reactive, computed } from 'vue'
+// import { reactive, computed } from 'vue'
+// モジュール化したためcomputedが不要になった
+import { reactive } from 'vue'
+import useCounter from '@/composables/useCounter'
 
-const useCounter = item => {
-  const increment = () => {
-    item.amount++
-  }
-  const decrement = () => {
-    item.amount--
-  }
-  const totalPrice = computed(()=>{
-    return item.price * item.amount
-  })
+// script内で合成関数を作成する場合
+// const useCounter = item => {
+//   const increment = () => {
+//     item.amount++
+//   }
+//   const decrement = () => {
+//     item.amount--
+//   }
+//   const totalPrice = computed(()=>{
+//     return item.price * item.amount
+//   })
 
-  return {
-    increment,
-    decrement,
-    totalPrice
-  }
-}
+//   return {
+//     increment,
+//     decrement,
+//     totalPrice
+//   }
+// }
 export default {
   setup(){
     const item = reactive({
