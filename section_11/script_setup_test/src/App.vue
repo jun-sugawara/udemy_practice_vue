@@ -1,7 +1,9 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
+  <ScriptSetupTest title="ここにタイトルが入ります" 
+    @custom-event="parentMethod"
+  />
   <HelloWorld msg="Welcome to Your Vue.js App"/>
-  <ScriptSetupTest />
 </template>
 
 <script>
@@ -13,6 +15,11 @@ export default {
   components: {
     HelloWorld,
     ScriptSetupTest
+  },
+  methods: {
+    parentMethod(e){
+      console.log('emit実行されました', e)
+    }
   }
 }
 </script>
